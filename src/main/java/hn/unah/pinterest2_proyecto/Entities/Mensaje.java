@@ -24,7 +24,7 @@ public class Mensaje {
     private long codigoMsj;
    
     @ManyToOne
-    @JoinColumn(name = "codigo_cvs", referencedColumnName = "codigo_cvs")
+    @JoinColumn(name = "codigo_cvs", referencedColumnName = "codigo_cvs" )
      private Conversacion conversacion;
      
      @Column(name = "contenido_msj")
