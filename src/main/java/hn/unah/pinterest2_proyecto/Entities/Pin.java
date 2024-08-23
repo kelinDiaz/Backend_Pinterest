@@ -39,7 +39,6 @@ public class Pin {
     
     @ManyToOne
     @JoinColumn(name = "codigo_usuario", referencedColumnName = "codigo_usuario")
-    
     private Usuario usuario;
 
     @ManyToOne

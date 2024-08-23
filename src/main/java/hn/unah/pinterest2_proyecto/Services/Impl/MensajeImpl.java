@@ -1,5 +1,7 @@
 package hn.unah.pinterest2_proyecto.Services.Impl;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +44,12 @@ public Mensaje crearMensaje(Mensaje mensaje, long codigoCvs, long codigoEstadoMs
     nuevoMensaje.setConversacion(conversacion);
     nuevoMensaje.setContenidoMsj(mensaje.getContenidoMsj());
     nuevoMensaje.setEstadoMsj(estadoMsj);
-    nuevoMensaje.setFechaMensaje(mensaje.getFechaMensaje());
+    nuevoMensaje.setFechaMensaje(LocalDateTime.now());
+    
+    
+
+   
+
     nuevoMensaje.setUrlArchivo(mensaje.getUrlArchivo());
 
     // Asignar reacción si está presente

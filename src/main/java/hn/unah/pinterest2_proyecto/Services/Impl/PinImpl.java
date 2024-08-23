@@ -49,6 +49,20 @@ public class PinImpl  implements PinService{
       return  this.pinRepository.findByTituloOrCategoria(criterio);
   }
 
+
+
+  @Override
+  public List<Pin> obtener() {
+  // TODO Auto-generated method stub
+    return this.pinRepository.findAll();
+  }
+
+
+  @Override
+  public List<Pin> getPinsByUser(long codigoUsuario) {
+  // TODO Auto-generated method stub
+  return this.pinRepository.findPinsByUsuarioCodigo(codigoUsuario);
+  }
 }
 
 

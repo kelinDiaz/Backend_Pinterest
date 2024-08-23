@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +25,6 @@ public class PinController {
     private PinImpl pinImpl;
 
 
- 
-
 
     @PostMapping("/insertar")
        public Pin insertar( @RequestBody Pin pin, @RequestParam long codigo_tablero) {
@@ -39,5 +38,15 @@ public class PinController {
         return pinImpl.buscarPorTituloOCategoria(criterio);
     }
 
+    @GetMapping("/obtener")
+    public List<Pin> obtener() {
+        // TODO Auto-generated method stub
+          return this.pinImpl.obtener();
+        }
+
+    @GetMapping("/obtenerbyUsuario/{codigoUsuario}")
+     public List<Pin> getPinsByUser( @PathVariable long codigoUsuario){
+    return this.pinImpl.getPinsByUser(codigoUsuario);
+     }
 
 }

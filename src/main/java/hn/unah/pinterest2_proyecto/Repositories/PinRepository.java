@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 import hn.unah.pinterest2_proyecto.Entities.Pin;
 
+
 public interface PinRepository extends JpaRepository<Pin, Long>{
 
     
@@ -17,6 +18,13 @@ public interface PinRepository extends JpaRepository<Pin, Long>{
     "LOWER(p.titulo) LIKE LOWER(CONCAT('%', :criterio, '%')) OR " +
     "LOWER(p.categoria.nombreCategoria) LIKE LOWER(CONCAT('%', :criterio, '%'))")
 List<Pin> findByTituloOrCategoria(@Param("criterio") String criterio);
+
+
+
+
+    
+    @Query("SELECT p FROM Pin p WHERE p.usuario.codigoUsuario = :codigoUsuario")
+    List<Pin> findPinsByUsuarioCodigo(@Param("codigoUsuario") long codigoUsuario);
 
 
 

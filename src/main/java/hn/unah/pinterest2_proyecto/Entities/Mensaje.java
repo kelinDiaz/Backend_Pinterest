@@ -1,6 +1,7 @@
 package hn.unah.pinterest2_proyecto.Entities;
 
-import java.sql.Date;
+
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,8 +41,8 @@ public class Mensaje {
      private ReaccionMsj reaccionMsj;
 
 
-    @Column(name = "fecha_msj")
-    private Date fechaMensaje;
+    @Column(name = "fecha_mensaje")
+    private LocalDateTime fechaMensaje;
     
     @Column(name = "url_archivo")
     private String urlArchivo;
