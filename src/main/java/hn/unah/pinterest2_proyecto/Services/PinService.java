@@ -4,11 +4,12 @@ package hn.unah.pinterest2_proyecto.Services;
 
 import java.util.List;
 
+import hn.unah.pinterest2_proyecto.DTOS.PinRequest;
 import hn.unah.pinterest2_proyecto.Entities.Pin;
 
 public interface PinService {
 
-    public Pin insertar(Pin pin, long codigo_tablero);
+    public Pin insertar(PinRequest pinRequest, long codigoUsuario);
  
     public List<Pin> obtener();
 

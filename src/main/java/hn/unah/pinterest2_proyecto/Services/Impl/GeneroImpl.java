@@ -1,5 +1,7 @@
 package hn.unah.pinterest2_proyecto.Services.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,14 @@ public class GeneroImpl implements GeneroService{
     @Override
     public Genero insertar(Genero genero) {
         // TODO Auto-generated method stub
-        return  generoRepository.save(genero);
+        return this.generoRepository.save(genero);
+        
+    }
+
+    @Override
+    public List<Genero> obtener() {
+        // TODO Auto-generated method stub
+        return (List<Genero>) this.generoRepository.findAll();
     }
     
 }

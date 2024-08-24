@@ -2,11 +2,14 @@ package hn.unah.pinterest2_proyecto.Entities;
 
 
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -22,6 +25,10 @@ public class Etiqueta {
 
     @Column(name = "nombre_etiqueta")
     private String nombreEtiqueta;
+
+
+    @ManyToMany(mappedBy = "etiquetas")
+    private List<Pin> pines;
 
     
 }

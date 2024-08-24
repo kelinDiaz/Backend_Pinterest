@@ -1,6 +1,9 @@
 package hn.unah.pinterest2_proyecto.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +23,12 @@ public class IdiomaController {
       public Idioma insertar( @RequestBody Idioma idioma) {
         // TODO Auto-generated method stub
         return this.idiomaImpl.insertar(idioma);
+    }
+
+    @GetMapping("/obtener")
+    public List<Idioma> obtener(){
+
+       return this.idiomaImpl.obtener();
     }
     
 }

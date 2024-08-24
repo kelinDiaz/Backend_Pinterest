@@ -1,6 +1,9 @@
 package hn.unah.pinterest2_proyecto.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +24,11 @@ public class LugarController {
         public Lugar insertar( @RequestBody Lugar lugar) {
         // TODO Auto-generated method stub
         return this.lugarImpl.insertar(lugar);
+    }
+
+    @GetMapping("/obtener")
+    public List<Lugar> obtener(){
+     return this.lugarImpl.obtener();
     }
     
 }

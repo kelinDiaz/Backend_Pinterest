@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,11 +31,13 @@ public class UsuarioController {
         return (List<Usuario>)this.usuarioImpl.Obtener();
     }
 
-   @PostMapping("/insertar")
-    public Usuario insertarUsuario(  @RequestBody Usuario usuario) {
-        // TODO Auto-generated method stub
-        return this.usuarioImpl.insertarUsuario(usuario);
+    @PostMapping("/insertar/{codigoGenero}/{codigoIdioma}/{codigoLugar}")
+    public Usuario insertarUsuario(@RequestBody Usuario usuario, @PathVariable  long codigoGenero, @PathVariable long codigoIdioma, @PathVariable long codigoLugar){
+
+        return this.usuarioImpl.insertarUsuario(usuario, codigoGenero, codigoIdioma, codigoLugar);
     }
+
+  
 
     @PostMapping("/login")
     public String login(@RequestBody Usuario loginRequest) {

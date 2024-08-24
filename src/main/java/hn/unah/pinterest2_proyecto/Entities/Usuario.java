@@ -3,7 +3,7 @@ package hn.unah.pinterest2_proyecto.Entities;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,15 +40,15 @@ public class Usuario {
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne 
     @JoinColumn(name = "codigo_genero", referencedColumnName = "codigo_genero")
     private Genero  genero; 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "codigo_idioma", referencedColumnName = "codigo_idioma")
     private Idioma idioma;
     
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne 
     @JoinColumn(name = "codigo_lugar", referencedColumnName = "codigo_lugar")
     private Lugar lugar;
 

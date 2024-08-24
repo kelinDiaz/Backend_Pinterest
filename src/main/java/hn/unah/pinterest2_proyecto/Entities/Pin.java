@@ -1,6 +1,8 @@
 package hn.unah.pinterest2_proyecto.Entities;
 
 import java.time.LocalDate;
+import java.util.List;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -11,6 +13,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -55,6 +59,11 @@ public class Pin {
     @JsonIgnore
     private Tablero tablero;
 
-
-    
+     @ManyToMany
+    @JoinTable(
+        name = "tbl_pines_x_etiquetas",
+        joinColumns = @JoinColumn(name = "codigo_pin"),
+        inverseJoinColumns = @JoinColumn(name = "codigo_etiqueta")
+    )
+    private List<Etiqueta> etiquetas;
 }

@@ -1,5 +1,7 @@
 package hn.unah.pinterest2_proyecto.Services.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,10 @@ public class LugarImpl implements LugarService{
         return this.lugarRepository.save(lugar);
     }
 
+    @Override
+    public List<Lugar> obtener() {
+        // TODO Auto-generated method stub
+        return (List<Lugar>)this.lugarRepository.findAll();
+    }
     
 }
