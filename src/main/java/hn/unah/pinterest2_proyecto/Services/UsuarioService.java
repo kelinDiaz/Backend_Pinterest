@@ -18,6 +18,11 @@ public interface UsuarioService {
 
     public Optional<Usuario> login (String correo, String contrasenia);
 
+
+
+     public Usuario obtenerUsuarioPorCodigo(long codigoUsuario);
+      
+    
     
     
 }

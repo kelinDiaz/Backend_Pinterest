@@ -72,5 +72,15 @@ public class UsuarioImpl  implements UsuarioService{
        return  this.usuarioRepository.findByCorreoAndContrasenia(correo, contrasenia);
    }
 
-}
+
+   @Override
+   public Usuario obtenerUsuarioPorCodigo(long codigoUsuario) {
+       // TODO Auto-generated method stub
+           return usuarioRepository.findById(codigoUsuario)
+            .orElse(null); // Retorna null si el usuario no se encuentra
+    }
+    
+   }
+
+
 

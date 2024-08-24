@@ -104,6 +104,17 @@ public Pin insertar(PinRequest pinRequest, long codigoUsuario) {
   // TODO Auto-generated method stub
   return this.pinRepository.findPinsByUsuarioCodigo(codigoUsuario);
   }
+
+
+
+  @Override
+  public Pin obtenerPinPorCodigo(long codigoPin) {
+      // TODO Auto-generated method stub
+      return pinRepository.findById(codigoPin)
+      .orElse(null); 
+  }
+
+
 }
 
 

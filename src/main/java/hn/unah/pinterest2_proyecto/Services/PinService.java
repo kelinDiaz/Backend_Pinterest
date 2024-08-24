@@ -18,6 +18,8 @@ public interface PinService {
     
     public List<Pin> getPinsByUser(long codigoUsuario);
 
+    public Pin obtenerPinPorCodigo(long codigoPin);
+
 
     
     
