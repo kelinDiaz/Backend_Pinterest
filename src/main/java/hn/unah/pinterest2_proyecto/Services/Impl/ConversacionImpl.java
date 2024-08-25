@@ -1,6 +1,7 @@
 package hn.unah.pinterest2_proyecto.Services.Impl;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,11 @@ public class ConversacionImpl implements ConversacionService{
         return this.conversacionRepository.save(conversacion);
     }
     
-
+  @Override
+  public List<Conversacion> Obtener(long usuarioEmisor) {
+    Usuario usuario = usuarioRepository.findById(usuarioEmisor)
+                                          .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        return conversacionRepository.findByUsuarioEmisor(usuario);
+  }
    
 }

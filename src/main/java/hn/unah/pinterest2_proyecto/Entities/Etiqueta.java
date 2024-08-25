@@ -4,6 +4,8 @@ package hn.unah.pinterest2_proyecto.Entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +30,7 @@ public class Etiqueta {
 
 
     @ManyToMany(mappedBy = "etiquetas")
+    @JsonIgnore
     private List<Pin> pines;
 
     

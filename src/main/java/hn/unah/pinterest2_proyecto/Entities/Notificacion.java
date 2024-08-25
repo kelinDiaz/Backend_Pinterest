@@ -2,6 +2,7 @@ package hn.unah.pinterest2_proyecto.Entities;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,22 +22,22 @@ public class Notificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_notificacion")
-    private long codigoNotificacio;
+    private long codigoNotificacion;
     
     @Column(name = "fecha_creacion")
     private LocalDate fechaCreacion;
 
 
     @ManyToOne
-    @JoinColumn(name = "codigo_emisor", referencedColumnName = "codigo_usuario")
+    @JoinColumn(name = "codigo_usuario_emisor", referencedColumnName = "codigo_usuario")
     private Usuario usuarioEmisor;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_receptors", referencedColumnName = "codigo_usuario")
+    @JoinColumn(name = "codigo_usuario_receptor", referencedColumnName = "codigo_usuario")
     private Usuario usuarioReceptor;
 
-    @ManyToOne
-    @JoinColumn(name = "codigo_tip", referencedColumnName = "codigo_tipo_noti")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigo_tipo_noti", referencedColumnName = "codigo_tipo_noti")
     private TipoNotificacion tipoNotificacion;
 
 
